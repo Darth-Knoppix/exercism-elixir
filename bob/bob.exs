@@ -3,16 +3,8 @@ defmodule Bob do
     String.last(input) == "?"
   end
 
-  defp ends_with_exclaim?(input) do
-    String.last(input) == "!"
-  end
-
   defp shouting?(input) do
     input == String.upcase(input) and input != String.downcase(input)
-  end
-
-  defp ends_with_number?(input) do
-    input |> String.last() |> String.match?(~r/[0-9]/)
   end
 
   defp silence?(input) do
@@ -23,8 +15,6 @@ defmodule Bob do
     cond do
       silence?(input) ->
         "Fine. Be that way!"
-      ends_with_number?(input) ->
-        "Whatever."
 
       question?(input) and shouting?(input) ->
         "Calm down, I know what I'm doing!"
